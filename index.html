@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read Time Calculator for Articles & Blogs — Mehvi</title>
+  <meta name="description" content="Calculate estimated reading time, word count, character count, sentences, and paragraphs for articles, blogs, and essays with Mehvi's free browser calculator.">
+  <link rel="canonical" href="https://mehvireadtime.netlify.app/">
+  <meta name="theme-color" content="#2563EB">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mehvireadtime.netlify.app/">
+  <meta property="og:title" content="Read Time Calculator for Articles & Blogs — Mehvi">
+  <meta property="og:description" content="Calculate estimated reading time, word count, and comprehensive text statistics for articles and essays directly in your browser.">
+  <meta property="og:site_name" content="Mehvi">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Read Time Calculator for Articles & Blogs — Mehvi">
+  <meta name="twitter:description" content="Calculate estimated reading time, word count, and comprehensive text statistics for articles and essays directly in your browser.">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Script (Deferred for Performance) -->
+  <script src="script.js" defer></script>
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Mehvi Read Time Calculator",
+    "url": "https://mehvireadtime.netlify.app/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "description": "Calculate estimated reading time, word count, character count, sentence count, and text analytics for articles, blog posts, and essays.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Estimated reading time in minutes and seconds",
+      "Live word counter",
+      "Character count with and without spaces",
+      "Sentence and paragraph counts",
+      "Three-speed reading comparison (150, 200, 250 WPM)",
+      "Configurable custom words per minute",
+      "One-click copy and plain-text report export",
+      "100% private in-browser computation"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a read time calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A read time calculator is a tool that computes how many minutes and seconds a person will take to read a specific piece of text based on word count and reading speed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is reading time calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Reading time is calculated by dividing total word count by reading speed in words per minute (WPM): Reading Time = Words ÷ WPM."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the average reading speed for adults?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The widely recognized scientific baseline for adult silent reading is approximately 200 to 250 words per minute."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the calculator count spaces?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool provides both character count with spaces and character count excluding whitespace for precision."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Mehvi store or transmit my text?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All text processing occurs strictly inside your browser memory. Nothing is sent to external servers or stored in cookies."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#calculator" class="skip-link">Skip to Calculator</a>
+
+  <!-- =======================================================================
+       1. Navigation Bar
+       ======================================================================= -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#hero" class="brand-link" aria-label="Mehvi Read Time Calculator Homepage">
+          <div class="brand-logo-icon" aria-hidden="true">M</div>
+          <span class="brand-text">Mehvi <span>ReadTime</span></span>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Main Navigation">
+          <a href="#hero" class="nav-link">Home</a>
+          <a href="#calculator" class="nav-link">Tool</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#speed-guide" class="nav-link">Speed Guide</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#calculator" class="nav-cta-btn">Calculate Now</a>
+        </nav>
+
+        <button class="hamburger-btn" id="hamburger-btn" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+          <svg class="hamburger-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <!-- =======================================================================
+         2. Hero Section & 3D Visual
+         ======================================================================= -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="hero-kicker">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Accurate In-Browser Analytics</span>
+            </div>
+
+            <h1 class="hero-title">
+              Read Time Calculator for <span class="gradient-text">Articles & Blogs</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Calculate estimated reading time, word count, character density, and structural metrics for your articles, blog posts, essays, and marketing copy. Optimized for writers, publishers, and SEO professionals.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#calculator" class="btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+                Calculate Reading Time
+              </a>
+              <a href="#features" class="btn-secondary">
+                Explore Features
+              </a>
+            </div>
+
+            <div class="hero-badges-strip">
+              <div class="hero-badge-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+                <span>100% Client-Side Privacy</span>
+              </div>
+              <div class="hero-badge-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+                <span>Multi-Speed Comparisons</span>
+              </div>
+              <div class="hero-badge-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+                <span>Zero Sign-Up Required</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero 3D Stage -->
+          <div class="hero-visual-stage" aria-hidden="true">
+            <div class="glow-backdrop"></div>
+            <div class="visual-3d-scene">
+              <div class="tablet-mockup">
+                <div class="tablet-screen">
+                  <div class="article-header-preview">
+                    <span class="article-title-placeholder">Article Preview</span>
+                    <span class="article-meta-tag">4 Min Read</span>
+                  </div>
+                  <div class="article-lines-preview">
+                    <div class="text-skeleton w-100"></div>
+                    <div class="text-skeleton w-90"></div>
+                    <div class="text-skeleton w-75"></div>
+                    <div class="text-skeleton w-100"></div>
+                    <div class="text-skeleton w-60"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating 3D Cards in Z-Space -->
+              <div class="floating-3d-card card-top-right">
+                <div class="badge-icon blue">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="badge-content">
+                  <span class="badge-val">200 WPM</span>
+                  <span class="badge-lbl">Standard Speed</span>
+                </div>
+              </div>
+
+              <div class="floating-3d-card card-bottom-left">
+                <div class="badge-icon cyan">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                </div>
+                <div class="badge-content">
+                  <span class="badge-val">842 Words</span>
+                  <span class="badge-lbl">4m 13s Reading Time</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. Core Calculator Section
+         ======================================================================= -->
+    <section class="calculator-section" id="calculator" aria-labelledby="calc-section-heading">
+      <div class="container">
+        <div class="calc-container">
+          <!-- Calculator Header Toolbar -->
+          <div class="calc-header">
+            <div class="calc-title-group">
+              <h2 id="calc-section-heading">Article & Blog Reading Time Calculator</h2>
+              <p>Type or paste your content below for instant real-time statistics</p>
+            </div>
+            <div class="calc-quick-actions">
+              <button type="button" class="btn-utility" id="btn-sample">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                Load Sample
+              </button>
+              <button type="button" class="btn-utility" id="btn-paste">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                </svg>
+                Paste
+              </button>
+              <button type="button" class="btn-utility danger" id="btn-clear">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+                Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- Textarea Input Area -->
+          <div class="calc-input-box">
+            <label for="calc-input" class="sr-only">Enter or paste your text to calculate reading time</label>
+            <textarea
+              id="calc-input"
+              class="calc-textarea"
+              placeholder="Paste or write your article, blog post, essay, or draft here... (Your text never leaves your browser)"
+              aria-label="Text to calculate reading time and word count"
+              spellcheck="true"
+            ></textarea>
+            <div class="textarea-footer">
+              <span class="privacy-notice">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                Processed locally. Text is never sent or saved to external servers.
+              </span>
+              <span class="live-char-indicator" id="live-char-indicator">0 words · 0 chars</span>
+            </div>
+          </div>
+
+          <!-- Speed Settings Bar -->
+          <div class="speed-control-bar" role="region" aria-label="Reading Speed Settings">
+            <div class="speed-control-header">
+              <span class="speed-control-title">Reading Speed (Words Per Minute)</span>
+              <span class="speed-control-desc">Select average reader baseline or specify custom pace</span>
+            </div>
+            <div class="speed-buttons-group" role="group" aria-label="Select Reading Speed">
+              <button type="button" class="speed-btn" data-speed="slow" aria-pressed="false">
+                <span class="speed-btn-label">Slow</span>
+                <span class="speed-btn-wpm">150 WPM</span>
+              </button>
+              <button type="button" class="speed-btn active" data-speed="average" aria-pressed="true">
+                <span class="speed-btn-label">Average (Default)</span>
+                <span class="speed-btn-wpm">200 WPM</span>
+              </button>
+              <button type="button" class="speed-btn" data-speed="fast" aria-pressed="false">
+                <span class="speed-btn-label">Fast</span>
+                <span class="speed-btn-wpm">250 WPM</span>
+              </button>
+              <button type="button" class="speed-btn" data-speed="custom" aria-pressed="false">
+                <span class="speed-btn-label">Custom</span>
+                <span class="speed-btn-wpm">User Defined</span>
+              </button>
+            </div>
+
+            <div class="custom-speed-box" id="custom-speed-box">
+              <label for="custom-wpm-input" class="custom-speed-label">Enter Custom Speed:</label>
+              <div class="custom-speed-input-wrapper">
+                <input
+                  type="number"
+                  id="custom-wpm-input"
+                  class="custom-speed-input"
+                  min="50"
+                  max="1000"
+                  step="10"
+                  value="200"
+                  aria-describedby="custom-speed-error"
+                >
+                <span style="font-size: 0.875rem; color: var(--text-muted); font-weight: 600;">WPM (50 – 1,000)</span>
+              </div>
+              <div class="custom-speed-error" id="custom-speed-error" role="alert"></div>
+            </div>
+          </div>
+
+          <!-- Calculation Results Dashboard -->
+          <div class="results-dashboard" role="region" aria-label="Calculation Results" aria-live="polite">
+            <!-- Hero Result Card -->
+            <div class="primary-result-card">
+              <div class="primary-result-content">
+                <div class="result-main-group">
+                  <span class="result-tagline">Estimated Reading Time</span>
+                  <div class="reading-time-display" id="primary-reading-time">0 min 0 sec</div>
+                  <div class="reading-time-subtitle" id="primary-time-subtitle">
+                    Enter or paste text above to see estimated reading time
+                  </div>
+                </div>
+                <div class="result-formula-badge">
+                  <strong>Reading Time Formula</strong>
+                  Time (Minutes) = Total Words ÷ Reading Speed (WPM)
+                </div>
+              </div>
+            </div>
+
+            <!-- Speed Comparison 3-Grid -->
+            <div class="speed-comparison-grid">
+              <div class="speed-compare-card" data-speed-mode="slow">
+                <div class="compare-card-label">
+                  <span>Slow Reader</span>
+                  <span class="current-indicator">Selected</span>
+                </div>
+                <div class="compare-card-time" id="time-slow">0s</div>
+                <div class="compare-card-wpm">150 Words Per Minute</div>
+              </div>
+
+              <div class="speed-compare-card current" data-speed-mode="average">
+                <div class="compare-card-label">
+                  <span>Average Reader</span>
+                  <span class="current-indicator">Selected</span>
+                </div>
+                <div class="compare-card-time" id="time-avg">0s</div>
+                <div class="compare-card-wpm">200 Words Per Minute (Standard)</div>
+              </div>
+
+              <div class="speed-compare-card" data-speed-mode="fast">
+                <div class="compare-card-label">
+                  <span>Fast Reader</span>
+                  <span class="current-indicator">Selected</span>
+                </div>
+                <div class="compare-card-time" id="time-fast">0s</div>
+                <div class="compare-card-wpm">250 Words Per Minute</div>
+              </div>
+            </div>
+
+            <!-- Statistics Grid (6 Metrics) -->
+            <div class="stats-grid">
+              <div class="stat-box">
+                <div class="stat-box-value" id="stat-words">0</div>
+                <div class="stat-box-label">Total Words</div>
+              </div>
+
+              <div class="stat-box">
+                <div class="stat-box-value" id="stat-chars-spaces">0</div>
+                <div class="stat-box-label">Characters (With Spaces)</div>
+              </div>
+
+              <div class="stat-box">
+                <div class="stat-box-value" id="stat-chars-nospaces">0</div>
+                <div class="stat-box-label">Characters (No Spaces)</div>
+              </div>
+
+              <div class="stat-box">
+                <div class="stat-box-value" id="stat-sentences">0</div>
+                <div class="stat-box-label">Total Sentences</div>
+              </div>
+
+              <div class="stat-box">
+                <div class="stat-box-value" id="stat-paragraphs">0</div>
+                <div class="stat-box-label">Total Paragraphs</div>
+              </div>
+
+              <div class="stat-box">
+                <div class="stat-box-value" id="stat-avg-words">0</div>
+                <div class="stat-box-label">Avg Words / Sentence</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions Footer (Copy, Download, Reset) -->
+          <div class="calc-actions-footer">
+            <div class="action-buttons-group">
+              <button type="button" class="btn-action" id="btn-copy">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy Results
+              </button>
+
+              <button type="button" class="btn-action" id="btn-download">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Report (.txt)
+              </button>
+
+              <button type="button" class="btn-action" id="btn-print">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                  <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                Print Results
+              </button>
+
+              <button type="button" class="btn-utility danger" id="btn-reset">
+                Reset Calculator
+              </button>
+            </div>
+
+            <div class="action-feedback-toast" id="feedback-toast" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         Ad Placement 1: After Introductory Content (AdSense Ready Placeholder)
+         ======================================================================= -->
+    <div class="container">
+      <div class="ad-slot-container" aria-label="Sponsored Content Placeholder">
+        <span class="ad-slot-label">Advertisement Placement (Reserved for Live Integration)</span>
+        <div class="ad-slot-placeholder-box">
+          Responsive Leaderboard / Display Ad Slot — Configurable by site owner after AdSense approval
+        </div>
+      </div>
+    </div>
+
+    <!-- =======================================================================
+         4. Quick Feature Overview (Bento Grid)
+         ======================================================================= -->
+    <section class="content-section" id="features">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Built for Creators & Editors</span>
+          <h2 class="section-title">Everything You Need to Gauge Reader Attention</h2>
+          <p class="section-desc">
+            Designed to bridge editorial craftsmanship with user behavioral science. Get comprehensive text statistics without friction.
+          </p>
+        </div>
+
+        <div class="bento-features-grid">
+          <div class="bento-card">
+            <div class="bento-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="bento-title">Three-Speed Comparison</h3>
+            <p class="bento-text">
+              View reading durations simultaneously across slow (150 WPM), average (200 WPM), and fast (250 WPM) readers, or specify your own custom reading pace.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-box teal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="bento-title">Live Structural Analytics</h3>
+            <p class="bento-text">
+              Track word count, character count with and without spaces, sentences, paragraphs, and average words per sentence updated in real time as you write.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="bento-title">Absolute Client-Side Privacy</h3>
+            <p class="bento-text">
+              All computation runs inside your local browser memory. No text is transmitted across the internet, logged into databases, or saved in cookies.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-box teal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+            <h3 class="bento-title">Download & Copy Reports</h3>
+            <p class="bento-text">
+              Export professional plain-text editorial reports or copy results to your clipboard with a single click, complete with timestamped metrics.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="bento-title">Zero Layout Shift & Lightweight</h3>
+            <p class="bento-text">
+              Built with pure vanilla web standards. No heavy frameworks, no bloated bundles, and zero lag on mobile phones, tablets, or desktop screens.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-box teal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </div>
+            <h3 class="bento-title">Sentence Density Rhythm</h3>
+            <p class="bento-text">
+              Monitor average words per sentence to maintain readability and pacing. Shorter sentences keep digital audiences engaged and reduce cognitive fatigue.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. What Is a Read Time Calculator?
+         ======================================================================= -->
+    <section class="content-section alt-bg" id="what-is">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Foundational Concept</span>
+          <h2 class="section-title">What Is a Read Time Calculator?</h2>
+          <p class="section-desc">
+            A read time calculator is a digital utility that analyzes the textual composition of an article or blog post and computes the expected duration an average person will need to read it from start to finish.
+          </p>
+        </div>
+
+        <div class="prose-block">
+          <p>
+            In online media, attention is the scarcest currency. When a reader clicks a headline, their subconscious makes a rapid decision: <em>"Do I have time to finish this right now?"</em> Displaying an accurate read time tag (such as "5 min read") establishes an upfront expectation. It removes the ambiguity of an infinitely scrolling page and provides readers with an instant psychological milestone.
+          </p>
+          <p>
+            Unlike a basic word counter that only totals raw numbers, a read time calculator combines linguistic statistics with cognitive reading science. It transforms abstract word tallies into concrete, human-centered time measurements. This metric has become an essential standard for modern content management systems, digital magazines, technical documentation portals, and corporate blogs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. How to Calculate Reading Time & Mathematical Formula
+         ======================================================================= -->
+    <section class="content-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Mathematical Formulation</span>
+          <h2 class="section-title">How the Reading Time Formula Works</h2>
+          <p class="section-desc">
+            The mathematical model behind reading time calculation is transparent, predictable, and grounded in cognitive linguistics.
+          </p>
+        </div>
+
+        <div class="formula-showcase-box">
+          <div class="formula-display-banner">
+            <div class="formula-math-text">
+              Reading Time (Minutes) = <span>Total Word Count</span> ÷ <span>Words Per Minute (WPM)</span>
+            </div>
+          </div>
+
+          <div class="formula-variables-grid">
+            <div class="formula-var-card">
+              <div class="formula-var-symbol">T</div>
+              <div class="formula-var-name">Estimated Time</div>
+              <div class="formula-var-desc">
+                The calculated duration in minutes. Fractional minutes are multiplied by 60 to produce precise minutes and seconds.
+              </div>
+            </div>
+
+            <div class="formula-var-card">
+              <div class="formula-var-symbol">W</div>
+              <div class="formula-var-name">Total Word Count</div>
+              <div class="formula-var-desc">
+                The total number of whitespace-delimited tokens in your content, including hyphenated words and numbers.
+              </div>
+            </div>
+
+            <div class="formula-var-card">
+              <div class="formula-var-symbol">S</div>
+              <div class="formula-var-name">Reading Speed (WPM)</div>
+              <div class="formula-var-desc">
+                The average reader pace. By default, 200 WPM represents silent reading for standard English adult readers.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose-block" style="margin: 0 auto;">
+          <h3>Example Calculation</h3>
+          <p>
+            Suppose you have authored a blog post containing <strong>1,200 words</strong>. Using the industry-standard reading speed of <strong>200 WPM</strong>:
+          </p>
+          <p style="font-family: var(--font-mono); background: #ffffff; padding: 1rem 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+            Reading Time = 1,200 words ÷ 200 WPM = 6.0 minutes (6 min 0 sec)
+          </p>
+          <p>
+            If the word count were <strong>1,050 words</strong>:
+          </p>
+          <p style="font-family: var(--font-mono); background: #ffffff; padding: 1rem 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+            Reading Time = 1,050 ÷ 200 = 5.25 minutes = 5 minutes and 15 seconds (5m 15s)
+          </p>
+          <p>
+            Mehvi's calculator automatically rounds fractions up to the nearest second, ensuring readers never receive underestimated timeframes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         Ad Placement 2: Between Substantial Content Sections (AdSense Ready)
+         ======================================================================= -->
+    <div class="container">
+      <div class="ad-slot-container" aria-label="Sponsored Content Placeholder">
+        <span class="ad-slot-label">Advertisement Placement (Reserved for Live Integration)</span>
+        <div class="ad-slot-placeholder-box">
+          In-Article Content Banner — Placed naturally between educational sections
+        </div>
+      </div>
+    </div>
+
+    <!-- =======================================================================
+         7. Why Reading Time Matters for Blogs and Articles
+         ======================================================================= -->
+    <section class="content-section alt-bg" id="why-it-matters">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Engagement & Retention</span>
+          <h2 class="section-title">Why Reading Time Matters for Blogs and Articles</h2>
+          <p class="section-desc">
+            Publishing a reading time estimate is not merely a design flourish; it is a proven user-experience strategy that directly influences reader metrics.
+          </p>
+        </div>
+
+        <div class="prose-block">
+          <p>
+            Several behavioral factors explain why readers respond favorably to estimated read times:
+          </p>
+          <ul>
+            <li>
+              <strong>Reduces Bounce Rates:</strong> Readers arriving from search engines or social media often abandon articles if they fear an unmanageable wall of text. Knowing an essay takes only 3 minutes encourages them to stay.
+            </li>
+            <li>
+              <strong>Sets Transparent Expectations:</strong> If a reader has a 10-minute commute or a 5-minute coffee break, an accurate reading time badge allows them to select articles that fit their available window.
+            </li>
+            <li>
+              <strong>Increases Article Completion Rates:</strong> Studies demonstrate that users are up to 40% more likely to finish an article when a progress indicator or initial duration badge is provided.
+            </li>
+            <li>
+              <strong>Improves Search Engine Signals:</strong> Search algorithms reward content that maintains reader dwell time. When readers know what to expect and finish reading, engagement metrics naturally rise.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. Benefits for Bloggers, Writers, and SEO Professionals
+         ======================================================================= -->
+    <section class="content-section" id="benefits">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Target Audience Value</span>
+          <h2 class="section-title">Benefits for Bloggers, Copywriters, and SEO Teams</h2>
+          <p class="section-desc">
+            How different content professionals leverage accurate reading time data during their daily workflow.
+          </p>
+        </div>
+
+        <div class="split-info-grid">
+          <div class="info-card">
+            <div class="info-card-header">
+              <div class="info-card-icon blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+              </div>
+              <h3 class="info-card-title">For Writers & Bloggers</h3>
+            </div>
+            <div class="info-card-body">
+              <p>
+                Writers can monitor the pacing of their articles before publishing. If an introductory blog post intended as a quick guide stretches into a 12-minute read, the author knows it is time to trim extraneous paragraphs or split the topic into a two-part series.
+              </p>
+              <ul>
+                <li>Validate whether your article aligns with your editorial format</li>
+                <li>Analyze average sentence length to avoid dense run-on phrasing</li>
+                <li>Ensure email newsletters stay within comfortable 2 to 3-minute boundaries</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-header">
+              <div class="info-card-icon green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <h3 class="info-card-title">For SEO & Content Strategists</h3>
+            </div>
+            <div class="info-card-body">
+              <p>
+                Search engine optimization demands content depth that matches user search intent. High-intent queries often require comprehensive pillar guides (7 to 10 minutes), whereas informational definitions need crisp, concise answers (1 to 2 minutes).
+              </p>
+              <ul>
+                <li>Align article depth with top-ranking competitor averages</li>
+                <li>Tag schema metadata with estimated reading times for search richness</li>
+                <li>Optimize dwell time and user engagement signals organically</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         9. Reading Speed Guide (Comprehensive Reference Table)
+         ======================================================================= -->
+    <section class="content-section alt-bg" id="speed-guide">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Cognitive Benchmarks</span>
+          <h2 class="section-title">Reading Speed Guide: WPM Benchmarks</h2>
+          <p class="section-desc">
+            Reading speed varies significantly based on age, language fluency, technical complexity, and reading modality.
+          </p>
+        </div>
+
+        <div class="responsive-table-wrapper">
+          <table class="edu-table">
+            <thead>
+              <tr>
+                <th scope="col">Reading Category</th>
+                <th scope="col">Typical WPM Range</th>
+                <th scope="col">Primary Context & Audience</th>
+                <th scope="col">Comprehension Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Slow / Technical Pace</strong></td>
+                <td class="tabular-cell">120 – 160 WPM</td>
+                <td>Academic research, code documentation, legal texts, second-language readers</td>
+                <td>High detailed retention</td>
+              </tr>
+              <tr>
+                <td><strong>Standard Silent Reading</strong></td>
+                <td class="tabular-cell">180 – 220 WPM</td>
+                <td>Online news, lifestyle blogs, magazine essays, adult general population</td>
+                <td>Balanced comprehension (Standard baseline)</td>
+              </tr>
+              <tr>
+                <td><strong>Fast / Conversational Pace</strong></td>
+                <td class="tabular-cell">230 – 280 WPM</td>
+                <td>Casual fiction, editorial op-eds, experienced web readers</td>
+                <td>Good contextual gist</td>
+              </tr>
+              <tr>
+                <td><strong>Skimming / Scanning</strong></td>
+                <td class="tabular-cell">400 – 700 WPM</td>
+                <td>Search evaluation, headline browsing, table-of-contents review</td>
+                <td>Surface-level information retrieval</td>
+              </tr>
+              <tr>
+                <td><strong>Speech / Audio Narration</strong></td>
+                <td class="tabular-cell">130 – 150 WPM</td>
+                <td>Podcasts, audiobooks, video voiceovers, presentations</td>
+                <td>High auditory absorption</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose-block">
+          <p>
+            Mehvi uses <strong>200 WPM</strong> as the default baseline because multiple meta-analyses of silent adult reading confirm that 200–238 words per minute represents the standard median for non-fiction prose in English.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         10. How to Use the Tool (Numbered Step Guide)
+         ======================================================================= -->
+    <section class="content-section" id="how-to-use">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Simple 4-Step Process</span>
+          <h2 class="section-title">How to Use Mehvi's Read Time Calculator</h2>
+          <p class="section-desc">
+            Calculate your article metrics in seconds with zero configuration or software downloads.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3 class="step-title">Paste or Type Text</h3>
+            <p class="step-desc">
+              Paste your article draft directly into the large input area, or click "Load Sample" to explore the tool's features immediately.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3 class="step-title">Select Reading Speed</h3>
+            <p class="step-desc">
+              Choose from Slow (150 WPM), Average (200 WPM), or Fast (250 WPM), or enter a custom WPM tailored to your niche readership.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3 class="step-title">Review Live Metrics</h3>
+            <p class="step-desc">
+              Instantly view exact minutes and seconds, along with character counts, sentences, paragraphs, and sentence density.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3 class="step-title">Copy or Export Report</h3>
+            <p class="step-desc">
+              Click "Copy Results" to paste metrics into your editorial draft, or download a structured plain-text report for your archives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         11. Practical Examples of Reading-Time Calculations
+         ======================================================================= -->
+    <section class="content-section alt-bg" id="examples">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Real-World Benchmarks</span>
+          <h2 class="section-title">Practical Examples of Reading-Time Calculations</h2>
+          <p class="section-desc">
+            Common publishing formats and their expected reading durations at standard 200 WPM speed.
+          </p>
+        </div>
+
+        <div class="examples-grid">
+          <div class="example-card">
+            <span class="example-type">Email Newsletter</span>
+            <h3 class="example-title">Weekly Digest</h3>
+            <div class="example-stats-row">
+              <div class="example-stat-item">
+                <span class="example-stat-val">350</span>
+                <span class="example-stat-lbl">Words</span>
+              </div>
+              <div class="example-stat-item">
+                <span class="example-stat-val">1m 45s</span>
+                <span class="example-stat-lbl">Read Time</span>
+              </div>
+            </div>
+            <p class="example-desc">
+              Ideal for morning executive newsletters, quick product announcements, and LinkedIn posts.
+            </p>
+          </div>
+
+          <div class="example-card">
+            <span class="example-type">Standard Blog</span>
+            <h3 class="example-title">How-To Article</h3>
+            <div class="example-stats-row">
+              <div class="example-stat-item">
+                <span class="example-stat-val">900</span>
+                <span class="example-stat-lbl">Words</span>
+              </div>
+              <div class="example-stat-item">
+                <span class="example-stat-val">4m 30s</span>
+                <span class="example-stat-lbl">Read Time</span>
+              </div>
+            </div>
+            <p class="example-desc">
+              The sweet spot for corporate blogs, software tutorials, and informative editorial posts.
+            </p>
+          </div>
+
+          <div class="example-card">
+            <span class="example-type">In-Depth Guide</span>
+            <h3 class="example-title">Comprehensive Guide</h3>
+            <div class="example-stats-row">
+              <div class="example-stat-item">
+                <span class="example-stat-val">1,800</span>
+                <span class="example-stat-lbl">Words</span>
+              </div>
+              <div class="example-stat-item">
+                <span class="example-stat-val">9m 00s</span>
+                <span class="example-stat-lbl">Read Time</span>
+              </div>
+            </div>
+            <p class="example-desc">
+              Long-form content designed for authoritative search rankings, case studies, and industry thought leadership.
+            </p>
+          </div>
+
+          <div class="example-card">
+            <span class="example-type">Pillar Content</span>
+            <h3 class="example-title">Ultimate Whitepaper</h3>
+            <div class="example-stats-row">
+              <div class="example-stat-item">
+                <span class="example-stat-val">4,000</span>
+                <span class="example-stat-lbl">Words</span>
+              </div>
+              <div class="example-stat-item">
+                <span class="example-stat-val">20m 00s</span>
+                <span class="example-stat-lbl">Read Time</span>
+              </div>
+            </div>
+            <p class="example-desc">
+              Exhaustive research papers, definitive guides, and eBooks requiring dedicated, seated focus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         12. Accuracy, Limitations & Privacy
+         ======================================================================= -->
+    <section class="content-section" id="accuracy-privacy">
+      <div class="container">
+        <div class="split-info-grid">
+          <div class="info-card">
+            <div class="info-card-header">
+              <div class="info-card-icon blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <h3 class="info-card-title">Accuracy and Inherent Limitations</h3>
+            </div>
+            <div class="info-card-body">
+              <p>
+                While the mathematical formula is exact, human reading behavior involves natural variance that no algorithm can fully predict:
+              </p>
+              <ul>
+                <li><strong>Media & Diagrams:</strong> Images, infographics, interactive tables, and code snippets require extra visual processing time (typically 10–15 seconds per image).</li>
+                <li><strong>Vocabulary Complexity:</strong> Dense academic jargon, specialized medical terminology, or legal clauses naturally reduce reading speed by 25–40%.</li>
+                <li><strong>Skimming vs. Deep Reading:</strong> Users inspecting an article for a single quick fact will spend far less time than someone reading every paragraph deliberately.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-header">
+              <div class="info-card-icon green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3 class="info-card-title">Privacy and Zero-Data Handling</h3>
+            </div>
+            <div class="info-card-body">
+              <p>
+                Mehvi is engineered with a strict <strong>privacy-first architecture</strong>:
+              </p>
+              <ul>
+                <li><strong>100% In-Browser Execution:</strong> Every calculation occurs entirely inside your local device's memory using JavaScript.</li>
+                <li><strong>Zero Server Transmission:</strong> Your unreleased drafts, confidential memos, and client manuscripts are never sent to external servers or APIs.</li>
+                <li><strong>No Text Storage:</strong> We do not store your text in browser cookies, localStorage, or session databases. When you close the tab, your text vanishes.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         Ad Placement 3: Lower Section (AdSense Ready Placeholder)
+         ======================================================================= -->
+    <div class="container">
+      <div class="ad-slot-container" aria-label="Sponsored Content Placeholder">
+        <span class="ad-slot-label">Advertisement Placement (Reserved for Live Integration)</span>
+        <div class="ad-slot-placeholder-box">
+          Bottom Responsive Display Unit — Positioned above FAQ and brand information
+        </div>
+      </div>
+    </div>
+
+    <!-- =======================================================================
+         13. Frequently Asked Questions (FAQ) Section
+         ======================================================================= -->
+    <section class="content-section alt-bg" id="faq">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Clear Answers</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">
+            Everything you need to know about calculating article reading times, word counts, and speed benchmarks.
+          </p>
+        </div>
+
+        <div class="faq-accordion-group">
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>1. What is a read time calculator?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              A read time calculator is a specialized text analytics utility that calculates how long an average reader will take to finish an article, blog post, essay, or book chapter. It divides total word count by average words per minute (WPM).
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>2. How is reading time calculated?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              Reading time is calculated using the formula: <strong>Reading Time (in Minutes) = Total Word Count ÷ Reading Speed (in WPM)</strong>. For instance, a 1,000-word blog post read at 200 WPM equals exactly 5 minutes of estimated reading time.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>3. What is the average reading speed for adults?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              For adult silent reading of standard English non-fiction prose, linguistic studies indicate an average pace of approximately 200 to 250 words per minute. Mehvi uses 200 WPM as the balanced default standard.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>4. How many words can someone read in one minute?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              An average adult reader reads approximately 200 words in one minute during silent reading. Slow or highly analytical readers consume about 150 words per minute, while fast readers consume 250 words per minute or more.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>5. Can I calculate the reading time of a blog post?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              Yes. You can paste your entire blog post draft, Markdown text, or published article copy directly into the calculator. The tool instantly computes reading time in minutes and seconds, along with word and sentence statistics.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>6. Does the calculator count spaces?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              Yes, our tool provides two separate character counts: one that includes spaces (useful for total document length) and one that excludes all whitespace (standard for translation pricing and character restrictions).
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>7. Can I change the reading speed?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              Yes. You can switch between Slow (150 WPM), Average (200 WPM), and Fast (250 WPM) with one click, or select "Custom" to set any speed between 50 and 1,000 words per minute.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>8. Is this Read Time Calculator free?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              Yes, the calculator is 100% free with unlimited usage. There are no paywalls, subscriptions, credits, or registration barriers.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>9. Does the tool store my text?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              No. Your text is processed entirely within your browser's local JavaScript execution environment. It is never transmitted across the network, stored on servers, or placed in cookies.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>10. How accurate is the estimated reading time?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              The mathematical word-to-minute ratio is mathematically exact. However, actual human reading time varies depending on technical complexity, reader vocabulary, code blocks, and diagrams. It serves as an authoritative estimate rather than a guaranteed stopwatch time.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>11. Can I use the calculator on a mobile phone?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              Yes. The interface is fully responsive, optimized for mobile screens from 320px upwards, with touch-friendly controls and zero horizontal overflow.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>12. Does the calculator work for other languages?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              The tool works for all space-separated alphabetic languages (English, Spanish, French, German, Italian, etc.). For character-based scripts like Chinese or Japanese where words are not delimited by spaces, character counts remain accurate, but you can adjust custom WPM to match character-per-minute conventions (typically 300–500 characters per minute).
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         14. About Mehvi
+         ======================================================================= -->
+    <section class="content-section" id="about">
+      <div class="container">
+        <div class="about-box">
+          <div class="about-grid">
+            <div class="about-copy">
+              <span class="section-kicker">About Our Brand</span>
+              <h2>About Mehvi</h2>
+              <p>
+                Mehvi was created to provide digital creators, editors, journalists, and SEO professionals with fast, lightweight, and reliable publishing tools. We believe that everyday editorial utilities should be privacy-respecting, instant, and free from intrusive popups or registration walls.
+              </p>
+              <p>
+                Our Read Time Calculator combines computational linguistics with modern web standards, delivering actionable text statistics in a clean, distraction-free environment.
+              </p>
+
+              <div class="about-features-list">
+                <div class="about-feat-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Independent and dedicated to web performance</span>
+                </div>
+                <div class="about-feat-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>100% Client-side processing with zero third-party telemetry</span>
+                </div>
+                <div class="about-feat-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Accessible, keyboard-navigable, and mobile-optimized</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-metrics-panel">
+              <div class="about-metric-block">
+                <span class="about-metric-val">0ms</span>
+                <span class="about-metric-lbl">Network Latency (Local Execution)</span>
+              </div>
+              <div class="about-metric-block">
+                <span class="about-metric-val">100%</span>
+                <span class="about-metric-lbl">User Privacy Maintained</span>
+              </div>
+              <div class="about-metric-block">
+                <span class="about-metric-val">200</span>
+                <span class="about-metric-lbl">Default WPM Industry Benchmark</span>
+              </div>
+              <div class="about-metric-block">
+                <span class="about-metric-val">0</span>
+                <span class="about-metric-lbl">Logins or Trackers Required</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================================
+       15. Site Footer
+       ======================================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-group">
+          <div class="footer-brand-title">Mehvi <span>ReadTime</span></div>
+          <p class="footer-brand-desc">
+            The free, private, and precise reading time calculator for content creators, bloggers, copywriters, and SEO specialists.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h3>Tool Navigation</h3>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#calculator">Calculator Tool</a></li>
+            <li><a href="#how-it-works">Formula & Mechanics</a></li>
+            <li><a href="#features">Key Features</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h3>Resources & Guides</h3>
+          <ul>
+            <li><a href="#speed-guide">Reading Speed Guide</a></li>
+            <li><a href="#examples">Practical Benchmarks</a></li>
+            <li><a href="#accuracy-privacy">Privacy & Security</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h3>About & Policies</h3>
+          <ul>
+            <li><a href="#about">About Mehvi</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="footer-legal-copy">
+          &copy; <span id="copyright-year">2026</span> Mehvi. All rights reserved.
+        </div>
+        <div class="footer-deployment-badge">
+          Production Domain: <span>https://mehvireadtime.netlify.app/</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

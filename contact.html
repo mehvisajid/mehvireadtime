@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Mehvi Read Time Calculator</title>
+  <meta name="description" content="Get in touch with the Mehvi team for feedback, questions, or feature requests regarding the Read Time Calculator.">
+  <link rel="canonical" href="https://mehvireadtime.netlify.app/contact.html">
+  <meta name="theme-color" content="#2563EB">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-link" aria-label="Mehvi Homepage">
+          <div class="brand-logo-icon" aria-hidden="true">M</div>
+          <span class="brand-text">Mehvi <span>ReadTime</span></span>
+        </a>
+        <a href="index.html#calculator" class="nav-cta-btn">Back to Tool</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="standalone-page" id="main-content" role="main">
+    <div class="container">
+      <div class="standalone-content-card">
+        <h1 class="standalone-title">Contact Us</h1>
+        <div class="standalone-date">We welcome your feedback, inquiries, and suggestions</div>
+
+        <div class="prose-block">
+          <p>
+            Have a question about how our reading time algorithms calculate words per minute? Want to suggest an additional metric for our analytics dashboard? We would love to hear from you.
+          </p>
+
+          <div style="background: var(--card-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; margin: 1.5rem 0;">
+            <h3 style="margin-top: 0; font-size: 1.125rem;">Direct Editorial Inquiries</h3>
+            <p style="margin-bottom: 0.5rem;">
+              <strong>Email:</strong> <a href="mailto:contact@mehvireadtime.netlify.app">contact@mehvireadtime.netlify.app</a>
+            </p>
+            <p style="margin-bottom: 0;">
+              <strong>Response Time:</strong> Typically within 24 to 48 business hours.
+            </p>
+          </div>
+
+          <h3>Send a Message</h3>
+          <form class="contact-form" id="contact-form" action="#" method="POST" onsubmit="return handleContactSubmit(event)">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Your Name</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. Jane Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Email Address</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="e.g. jane@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject" class="form-label">Subject</label>
+              <input type="text" id="contact-subject" class="form-input" placeholder="e.g. Feedback on calculation speed settings" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message</label>
+              <textarea id="contact-message" class="form-textarea" placeholder="Write your inquiry or feedback here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="align-self: flex-start; margin-top: 0.5rem;">
+              Send Message
+            </button>
+            <div id="contact-feedback" style="display: none; padding: 0.75rem 1rem; border-radius: var(--radius-md); font-weight: 600; font-size: 0.9375rem; background: var(--success-light); color: var(--success); border: 1px solid rgba(5,150,105,0.2);">
+              ✓ Thank you! Your message has been received.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom-bar" style="border-top: none; padding-top: 0;">
+        <div class="footer-legal-copy">
+          &copy; 2026 Mehvi. All rights reserved.
+        </div>
+        <div class="footer-deployment-badge">
+          <a href="index.html" style="color: #9CA3AF;">Return to Homepage</a> · <a href="privacy.html" style="color: #9CA3AF;">Privacy Policy</a> · <a href="terms.html" style="color: #9CA3AF;">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      var feedback = document.getElementById('contact-feedback');
+      var form = document.getElementById('contact-form');
+      if (feedback && form) {
+        feedback.style.display = 'block';
+        form.reset();
+        setTimeout(function() {
+          feedback.style.display = 'none';
+        }, 5000);
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>
