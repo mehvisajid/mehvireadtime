@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mehvireadtime.netlify.app/sitemap.xml
+Sitemap: https://mehvireadtime.online/sitemap.xml
