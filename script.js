@@ -71,7 +71,7 @@
   };
 
   // ---------------------------------------------------------------------------
-  // 3. Editorial Sample Text (450 Words)
+  // 3. Editorial Sample Text
   // ---------------------------------------------------------------------------
   const SAMPLE_TEXT = `The Cognitive Science of Digital Reading: How Layout Shapes Comprehension
 
@@ -118,7 +118,6 @@ Ultimately, calculated reading time is more than just a convenient statistic for
     const charsNoSpaces = rawText.replace(/\s/g, '').length;
 
     // 3. Sentences: Punctuation-based boundary approximation (. ! ?)
-    // Match one or more terminal marks followed by whitespace or string end
     const sentenceMatches = text.match(/[^.!?]+[.!?]+(?:\s+|$)/g);
     let sentences = 0;
     if (sentenceMatches && sentenceMatches.length > 0) {
@@ -128,7 +127,7 @@ Ultimately, calculated reading time is more than just a convenient statistic for
       sentences = 1;
     }
 
-    // 4. Paragraphs: Blocks separated by one or more blank lines
+    // 4. Paragraphs: Blocks separated by one or more line breaks
     const paragraphsArray = rawText.split(/\n+/).map(function (p) {
       return p.trim();
     }).filter(function (p) {
@@ -411,7 +410,7 @@ Ultimately, calculated reading time is more than just a convenient statistic for
       '====================================================================',
       'MEHVI — READ TIME & TEXT METRICS REPORT',
       `Generated on: ${dateStr} at ${timeStr}`,
-      'Website: https://mehvireadtime.netlify.app/',
+      'Website: https://mehvireadtime.online/',
       '====================================================================',
       '',
       '1. ESTIMATED READING TIMES',
