@@ -1,4 +1,6 @@
+# Mehvi Read Time Robots.txt
 User-agent: *
 Allow: /
 
+# Sitemap Location
 Sitemap: https://mehvireadtime.online/sitemap.xml
