@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Mehavi ReadTime – Free Reading & Speaking Time Calculator</title>
+  <meta name="description" content="Learn about Mehavi ReadTime (mehvireadtime.online) – the free, 100% private, client-side reading and speaking time estimation tool for creators, speakers, and readers.">
+  <link rel="canonical" href="https://mehvireadtime.online/about.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mehvireadtime.online/about.html">
+  <meta property="og:title" content="About Mehavi ReadTime – Free Reading & Speaking Time Calculator">
+  <meta property="og:description" content="Fast, accurate, and 100% client-side reading and speech duration calculator for articles, scripts, and content.">
+  <meta property="og:site_name" content="Mehavi ReadTime">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Mehavi ReadTime – Free Reading & Speaking Time Calculator">
+  <meta name="twitter:description" content="Fast, accurate, and 100% client-side reading and speech duration calculator for articles, scripts, and content.">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Mehavi ReadTime",
+    "url": "https://mehvireadtime.online/about.html",
+    "description": "Learn about Mehavi ReadTime, a free client-side tool providing accurate silent reading time and public speaking duration estimates.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mehavi ReadTime",
+      "url": "https://mehvireadtime.online"
+    },
+    "mainEntity": {
+      "@type": "WebApplication",
+      "name": "Mehavi ReadTime",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       CSS Variables & Design Tokens (Matching mehvireadtime.online)
+       ========================================================================== */
+    :root {
+      --bg-body: #f8f9fa;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --text-header: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-active: #1e40af;
+      --primary-light: #eff6ff;
+      --primary-ring: rgba(37, 99, 235, 0.2);
+      --accent-navy: #1e293b;
+      --accent-navy-dark: #0f172a;
+      --border-color: #e2e8f0;
+      --border-focus: #93c5fd;
+      --success: #10b981;
+      --success-light: #ecfdf5;
+      --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, sans-serif;
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --container-width: 1140px;
+    }
+
+    /* Reset & Base Elements */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--bg-body);
+      color: var(--text-body);
+      line-height: 1.65;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+    }
+
+    img, svg {
+      vertical-align: middle;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* ==========================================================================
+       Header & Navigation Bar
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-navy);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .brand-logo:hover {
+      color: var(--primary);
+    }
+
+    .logo-icon-wrapper {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    .logo-domain {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: block;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 6px;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      font-size: 0.925rem;
+      font-weight: 500;
+      color: var(--text-body);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+      background-color: var(--bg-subtle);
+    }
+
+    /* Active Nav Link Highlight */
+    .nav-link.active {
+      color: var(--primary);
+      background-color: var(--primary-light);
+      font-weight: 600;
+    }
+
+    .nav-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--primary);
+      color: #ffffff;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+      transition: var(--transition);
+      margin-left: 10px;
+    }
+
+    .nav-cta-btn:hover {
+      background-color: var(--primary-hover);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Mobile Hamburger Toggle */
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 8px;
+      cursor: pointer;
+      color: var(--text-body);
+      transition: var(--transition);
+    }
+
+    .mobile-menu-btn:hover {
+      background-color: var(--bg-subtle);
+      color: var(--text-header);
+    }
+
+    /* Mobile Drawer */
+    .mobile-nav-drawer {
+      display: none;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .mobile-nav-drawer.open {
+      display: block;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-nav-list .nav-link {
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 1rem;
+    }
+
+    /* ==========================================================================
+       Hero Header Section
+       ========================================================================== */
+    .hero-section {
+      padding: 56px 0 40px;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb a {
+      color: var(--text-muted);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--primary);
+    }
+
+    .breadcrumb-separator {
+      color: var(--text-light);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--accent-navy-dark);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.175rem;
+      color: var(--text-body);
+      max-width: 720px;
+      margin: 0 auto 24px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.28);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--text-body);
+      border-color: var(--border-color);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-subtle);
+      color: var(--accent-navy);
+      border-color: #cbd5e1;
+    }
+
+    /* Key Metrics Strip */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 880px;
+      margin: 40px auto 0;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 6px;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.775rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       Main Content Layout & Section Common
+       ========================================================================== */
+    .main-content {
+      flex: 1;
+      padding: 56px 0 72px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 36px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1.95rem;
+      font-weight: 800;
+      color: var(--accent-navy-dark);
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       Mission & Vision Section (Two Grid Cards)
+       ========================================================================== */
+    .mission-section {
+      margin-bottom: 64px;
+    }
+
+    .two-grid-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .mission-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .mission-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+    }
+
+    .card-icon-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .icon-bubble {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .icon-bubble.primary-bubble {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .icon-bubble.navy-bubble {
+      background-color: #f1f5f9;
+      color: var(--accent-navy);
+    }
+
+    .card-heading-group h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-navy);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .card-heading-group span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .mission-card p {
+      color: var(--text-body);
+      font-size: 0.975rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .card-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .card-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.925rem;
+      color: var(--text-body);
+    }
+
+    .check-icon {
+      color: var(--primary);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       Key Features & Capability Highlights (4 Responsive Cards)
+       ========================================================================== */
+    .features-section {
+      margin-bottom: 64px;
+    }
+
+    .four-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+      border-color: #cbd5e1;
+    }
+
+    .feature-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background-color: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon-box {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .feature-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--accent-navy);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       Interactive Live Tool Preview Demo (High Value Addition)
+       ========================================================================== */
+    .demo-section {
+      margin-bottom: 64px;
+    }
+
+    .demo-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .demo-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .demo-title-group h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-navy);
+    }
+
+    .demo-title-group p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .sample-presets {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .sample-preset-btn {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-body);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .sample-preset-btn:hover {
+      background-color: var(--primary-light);
+      border-color: #93c5fd;
+      color: var(--primary);
+    }
+
+    .demo-editor-area {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .demo-textarea {
+      width: 100%;
+      min-height: 130px;
+      padding: 16px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-body);
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      resize: vertical;
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    .demo-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-ring);
+    }
+
+    .demo-clear-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(241, 245, 249, 0.8);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .demo-clear-btn:hover {
+      background: #e2e8f0;
+      color: var(--text-header);
+    }
+
+    /* Demo Metrics Grid */
+    .demo-results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .result-box {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .result-box.highlight {
+      border-color: #93c5fd;
+      background-color: #f0f7ff;
+    }
+
+    .result-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .result-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--accent-navy);
+      line-height: 1.2;
+    }
+
+    .result-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       How It Works Section (Numbered Steps)
+       ========================================================================== */
+    .how-it-works-section {
+      margin-bottom: 64px;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .step-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .step-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+    }
+
+    .step-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background-color: var(--primary);
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    }
+
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .step-desc {
+      font-size: 0.925rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       Audience & Use Cases Section
+       ========================================================================== */
+    .audience-section {
+      margin-bottom: 64px;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .audience-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-xs);
+      transition: var(--transition);
+    }
+
+    .audience-card:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .audience-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent-navy);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .audience-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       Standards & Methodology Accordion / FAQ
+       ========================================================================== */
+    .faq-section {
+      margin-bottom: 64px;
+    }
+
+    .faq-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: #93c5fd;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 20px 24px;
+      text-align: left;
+      font-family: inherit;
+      font-size: 1.025rem;
+      font-weight: 600;
+      color: var(--accent-navy);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--primary);
+    }
+
+    .faq-arrow {
+      width: 20px;
+      height: 20px;
+      color: var(--text-muted);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      border-top: 1px solid #f8fafc;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* ==========================================================================
+       CTA Banner
+       ========================================================================== */
+    .cta-banner-section {
+      margin-bottom: 24px;
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-banner h2 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .cta-banner p {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .cta-btn-white {
+      background-color: #ffffff;
+      color: var(--accent-navy-dark);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .cta-btn-white:hover {
+      background-color: #f1f5f9;
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ==========================================================================
+       Footer Section
+       ========================================================================== */
+    .site-footer {
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      padding: 48px 0 28px;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand-col p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-navy);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-privacy-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-privacy-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-privacy-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Back To Top Floating Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background-color: var(--accent-navy);
+      color: #ffffff;
+      border: 1px solid #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 999;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Contact / Quick Info Toast */
+    .toast-notice {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--accent-navy-dark);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-notice.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ==========================================================================
+       Responsive Breakpoints
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .two-grid-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .four-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps-container {
+        grid-template-columns: 1fr;
+      }
+
+      .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .demo-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta-btn {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero-title {
+        font-size: 2.15rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.05rem;
+      }
+
+      .stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-banner {
+        padding: 32px 20px;
+      }
+
+      .cta-banner h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .four-cards-grid,
+      .audience-grid,
+      .demo-results-grid,
+      .stats-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: 1.85rem;
+      }
+
+      .mission-card {
+        padding: 24px 20px;
+      }
+
+      .demo-card {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Top Navigation Bar
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <!-- Brand Logo / Name -->
+        <a href="index.html" class="brand-logo" aria-label="Mehavi ReadTime Home">
+          <div class="logo-icon-wrapper" aria-hidden="true">
+            <!-- Clock + Book SVG Icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div>
+            <span>Mehavi ReadTime</span>
+            <span class="logo-domain">mehvireadtime.online</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#tool" class="nav-link">Reading Time Tool</a></li>
+          <li><a href="about.html" class="nav-link active" aria-current="page">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+          <li><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
+        </ul>
+
+        <!-- Action CTA Button in Nav -->
+        <a href="index.html#tool" class="nav-cta-btn">
+          <span>Calculate Now</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg id="hamburgerIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg id="closeIcon" style="display:none;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" role="region" aria-label="Mobile Menu">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#tool" class="nav-link">Reading Time Tool</a></li>
+        <li><a href="about.html" class="nav-link active" aria-current="page">About Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
+        <li>
+          <a href="index.html#tool" class="btn btn-primary" style="width:100%; margin-top:8px;">
+            Open Calculator Tool
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Hero Header Section
+       ========================================================================== */ -->
+  <section class="hero-section" aria-labelledby="hero-title">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span aria-current="page">About Us</span>
+      </nav>
+
+      <!-- Badge -->
+      <div class="badge-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/>
+        </svg>
+        <span>Trusted Web Utility • mehvireadtime.online</span>
+      </div>
+
+      <!-- Main Headings -->
+      <h1 class="hero-title" id="hero-title">About Mehavi ReadTime</h1>
+      <p class="hero-subtitle">
+        Empowering readers, content creators, and students with accurate reading & speaking time estimation tools.
+      </p>
+      <p class="hero-desc">
+        Engineered with a 100% client-side, zero-tracking philosophy. Count words, estimate speech delivery cadences, and plan your written content with pinpoint accuracy in real-time.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hero-actions">
+        <a href="#features" class="btn btn-primary">
+          <span>Explore Capabilities</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+        <a href="#live-demo" class="btn btn-secondary">
+          <span>Try Interactive Demo</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Key Metrics Strip -->
+      <div class="stats-strip" aria-label="Key Tool Statistics">
+        <div class="stat-item">
+          <div class="stat-value">0 ms</div>
+          <div class="stat-label">Server Latency</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Client-Side Privacy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">200–250</div>
+          <div class="stat-label">Silent Reading WPM</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">130–150</div>
+          <div class="stat-label">Speech Delivery WPM</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Main Content Container
+       ========================================================================== -->
+  <main class="main-content" id="main-content" role="main">
+    <div class="container">
+
+      <!-- ======================================================================
+           Mission & Vision Section (Two Grid Cards)
+           ====================================================================== -->
+      <section class="mission-section" aria-labelledby="mission-title">
+        <div class="section-header">
+          <span class="section-badge">Core Purpose</span>
+          <h2 class="section-title" id="mission-title">Our Mission & Engineering Vision</h2>
+          <p class="section-subtitle">
+            Why we built Mehavi ReadTime and how we approach privacy, performance, and accessibility.
+          </p>
+        </div>
+
+        <div class="two-grid-cards">
+          <!-- Card 1: Our Mission -->
+          <article class="mission-card">
+            <div class="card-icon-header">
+              <div class="icon-bubble primary-bubble" aria-hidden="true">
+                <!-- Compass / Target SVG -->
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+              </div>
+              <div class="card-heading-group">
+                <h3>Our Mission</h3>
+                <span>Speed, precision & barrier-free utility</span>
+              </div>
+            </div>
+            <p>
+              To provide fast, accurate, and completely free web utility tools that help users calculate exact reading and speaking duration for any text instantly.
+            </p>
+            <p>
+              We believe pacing shouldn't require complex software or guesswork. Whether you are rehearsing a critical 5-minute keynote presentation, estimating reading time for a technical blog post, or pacing study scripts, Mehavi ReadTime delivers immediate calculations directly in your browser.
+            </p>
+            <ul class="card-features-list">
+              <li class="card-feature-item">
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>Instantaneous Execution:</strong> Zero page reloads or waiting loops.</span>
+              </li>
+              <li class="card-feature-item">
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>Research-Grounded:</strong> Calibrated with standard cognitive reading speeds.</span>
+              </li>
+              <li class="card-feature-item">
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>Always 100% Free:</strong> No paywalls, no tiered subscriptions, no gimmicks.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Card 2: Why Choose Us -->
+          <article class="mission-card">
+            <div class="card-icon-header">
+              <div class="icon-bubble navy-bubble" aria-hidden="true">
+                <!-- Shield Check SVG -->
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+              </div>
+              <div class="card-heading-group">
+                <h3>Why Choose Us</h3>
+                <span>Privacy-first engineering by design</span>
+              </div>
+            </div>
+            <p>
+              Unlike conventional online counting utilities that transmit your proprietary drafts, essays, or personal speeches to remote servers, Mehavi ReadTime operates with uncompromising security.
+            </p>
+            <ul class="card-features-list">
+              <li class="card-feature-item">
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>100% Client-Side Privacy:</strong> No text ever leaves your machine. Calculations execute entirely in local browser RAM.
+                </div>
+              </li>
+              <li class="card-feature-item">
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Zero Registration Required:</strong> No email signups, no passwords to create, no verification codes. Just open and use.
+                </div>
+              </li>
+              <li class="card-feature-item">
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Superfast Instant Calculations:</strong> Responsive feedback with zero processing overhead.
+                </div>
+              </li>
+              <li class="card-feature-item">
+                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Clean Ad-Free Focus:</strong> Clean interface engineered for deep work without popups or clutter.
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           Key Features & Capability Highlights (4 Responsive Cards)
+           ====================================================================== -->
+      <section class="features-section" id="features" aria-labelledby="features-title">
+        <div class="section-header">
+          <span class="section-badge">Capabilities</span>
+          <h2 class="section-title" id="features-title">Key Features & Tool Capabilities</h2>
+          <p class="section-subtitle">
+            Purpose-built functionality crafted to streamline your editing and speaking workflows.
+          </p>
+        </div>
+
+        <div class="four-cards-grid">
+          <!-- Card 1: Instant Processing -->
+          <article class="feature-card">
+            <div class="feature-icon-box" aria-hidden="true">
+              <!-- Lightning Bolt SVG -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="feature-title">Instant Processing</h3>
+            <p class="feature-desc">
+              Real-time calculation as you type or paste. Word count, character count, and time estimates update simultaneously with zero latency.
+            </p>
+          </article>
+
+          <!-- Card 2: 100% Privacy Focused -->
+          <article class="feature-card">
+            <div class="feature-icon-box" aria-hidden="true">
+              <!-- Lock / Security Shield SVG -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">100% Privacy Focused</h3>
+            <p class="feature-desc">
+              Everything runs directly inside your browser. No data ever leaves your device, touches a database, or gets ingested into AI training sets.
+            </p>
+          </article>
+
+          <!-- Card 3: Dual Estimation -->
+          <article class="feature-card">
+            <div class="feature-icon-box" aria-hidden="true">
+              <!-- Dual Stopwatch & Mic SVG -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="14" r="8"></circle>
+                <line x1="12" y1="2" x2="12" y2="6"></line>
+                <line x1="12" y1="10" x2="12" y2="14"></line>
+                <line x1="12" y1="14" x2="15.5" y2="15.5"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Dual Estimation</h3>
+            <p class="feature-desc">
+              Calculates both Silent Reading Time (WPM ~200–250) and Public Speaking Time (WPM ~130–150) for perfect stage and digital pacing.
+            </p>
+          </article>
+
+          <!-- Card 4: Mobile Optimized -->
+          <article class="feature-card">
+            <div class="feature-icon-box" aria-hidden="true">
+              <!-- Smartphone / Responsive SVG -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Mobile Optimized</h3>
+            <p class="feature-desc">
+              Smooth, responsive performance across smartphones, tablets, and wide desktop displays without layout breakage or slowdowns.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           Interactive Live Demo Preview Section (Demonstrating Pure Vanilla JS)
+           ====================================================================== -->
+      <section class="demo-section" id="live-demo" aria-labelledby="demo-title">
+        <div class="demo-card">
+          <div class="demo-header">
+            <div class="demo-title-group">
+              <h3 id="demo-title">Test Our Estimation Algorithm Right Here</h3>
+              <p>Type or paste any draft below to see our live client-side calculations in action.</p>
+            </div>
+            <div class="sample-presets">
+              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted);">Try Samples:</span>
+              <button type="button" class="sample-preset-btn" id="sampleBlogBtn">Blog Post (150w)</button>
+              <button type="button" class="sample-preset-btn" id="sampleSpeechBtn">Keynote Speech (300w)</button>
+              <button type="button" class="sample-preset-btn" id="sampleClearBtn">Clear</button>
+            </div>
+          </div>
+
+          <div class="demo-editor-area">
+            <label for="demoInput" class="visually-hidden" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">Input text for calculation</label>
+            <textarea
+              id="demoInput"
+              class="demo-textarea"
+              placeholder="Paste or write your text here to test real-time silent reading and speaking estimates..."
+              rows="4"
+            >Mehavi ReadTime is engineered to give writers, students, public speakers, and content creators an accurate grasp of time. Modern readers ingest content at roughly 200 to 250 words per minute during silent reading, while vocal speech delivery naturally slows down to 130 to 150 words per minute to maintain clarity, proper inflection, and emotional resonance. By calculating both metrics concurrently, our tool eliminates uncertainty before you step onto the podium or hit publish on your blog.</textarea>
+          </div>
+
+          <!-- Live Results Grid -->
+          <div class="demo-results-grid" aria-live="polite">
+            <div class="result-box highlight">
+              <div class="result-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Silent Reading
+              </div>
+              <div class="result-value" id="demoReadingTime">22 sec</div>
+              <div class="result-subtitle">Calibrated @ 225 WPM</div>
+            </div>
+
+            <div class="result-box highlight">
+              <div class="result-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path></svg>
+                Speaking Delivery
+              </div>
+              <div class="result-value" id="demoSpeakingTime">35 sec</div>
+              <div class="result-subtitle">Calibrated @ 140 WPM</div>
+            </div>
+
+            <div class="result-box">
+              <div class="result-title">Words Count</div>
+              <div class="result-value" id="demoWordCount">82</div>
+              <div class="result-subtitle">Total words detected</div>
+            </div>
+
+            <div class="result-box">
+              <div class="result-title">Characters</div>
+              <div class="result-value" id="demoCharCount">547</div>
+              <div class="result-subtitle">Characters &amp; spaces</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           How It Works (Numbered Steps)
+           ====================================================================== -->
+      <section class="how-it-works-section" aria-labelledby="steps-title">
+        <div class="section-header">
+          <span class="section-badge">Simple 3-Step Process</span>
+          <h2 class="section-title" id="steps-title">How Mehavi ReadTime Works</h2>
+          <p class="section-subtitle">
+            Fast, intuitive, and frictionless. Three straightforward steps from raw text to complete timing metrics.
+          </p>
+        </div>
+
+        <div class="steps-container">
+          <!-- Step 1 -->
+          <article class="step-card">
+            <div class="step-badge" aria-hidden="true">1</div>
+            <h3 class="step-title">Paste or Type Content</h3>
+            <p class="step-desc">
+              Paste or type your article, speech script, blog post, or manuscript directly into the tool's clean text input box. No file uploading or formatting conversion necessary.
+            </p>
+          </article>
+
+          <!-- Step 2 -->
+          <article class="step-card">
+            <div class="step-badge" aria-hidden="true">2</div>
+            <h3 class="step-title">Instant Analysis</h3>
+            <p class="step-desc">
+              Our lightweight client-side algorithm immediately counts words, characters, sentences, and paragraphs, filtering whitespace and punctuation in real-time.
+            </p>
+          </article>
+
+          <!-- Step 3 -->
+          <article class="step-card">
+            <div class="step-badge" aria-hidden="true">3</div>
+            <h3 class="step-title">Accurate Timing Results</h3>
+            <p class="step-desc">
+              Receive instant dual estimates: silent reading time for digital content consumers, and vocal speech delivery timing for presentations, podcasts, and video scripts.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           Who Is It For Section
+           ====================================================================== -->
+      <section class="audience-section" aria-labelledby="audience-title">
+        <div class="section-header">
+          <span class="section-badge">Built For Creators</span>
+          <h2 class="section-title" id="audience-title">Who Benefits From Mehavi ReadTime?</h2>
+          <p class="section-subtitle">
+            Tailored for anyone whose message depends on pacing, duration, and audience engagement.
+          </p>
+        </div>
+
+        <div class="audience-grid">
+          <div class="audience-card">
+            <h4>
+              <span>✍️</span> Writers &amp; Bloggers
+            </h4>
+            <p>
+              Display transparent estimated reading times atop Medium, Substack, or WordPress articles to enhance reader satisfaction.
+            </p>
+          </div>
+
+          <div class="audience-card">
+            <h4>
+              <span>🎙️</span> Speakers &amp; Presenters
+            </h4>
+            <p>
+              Time your pitch, webinar, wedding speech, or TEDx talk precisely to ensure you never exceed your allotted stage time.
+            </p>
+          </div>
+
+          <div class="audience-card">
+            <h4>
+              <span>🎬</span> Video &amp; Voiceover Creators
+            </h4>
+            <p>
+              Gauge script duration for YouTube Shorts, Reels, TikToks, and commercials before entering the recording studio.
+            </p>
+          </div>
+
+          <div class="audience-card">
+            <h4>
+              <span>🎓</span> Students &amp; Educators
+            </h4>
+            <p>
+              Plan homework reading blocks, measure presentation lengths for class assignments, and manage study schedules effectively.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           Frequently Asked Questions (FAQ Accordion)
+           ====================================================================== -->
+      <section class="faq-section" aria-labelledby="faq-title">
+        <div class="section-header">
+          <span class="section-badge">Common Questions</span>
+          <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            Everything you need to know about Mehavi ReadTime's technology and privacy guarantees.
+          </p>
+        </div>
+
+        <div class="faq-wrapper" id="faqAccordion">
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <button type="button" class="faq-question" aria-expanded="true">
+              <span>Is Mehavi ReadTime completely free to use?</span>
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes, 100% free with unlimited usage. There are no paid tiers, hidden subscriptions, or limits on the volume of words or documents you can test.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Does Mehavi ReadTime store or transmit my text to a server?</span>
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Never. All text parsing, word counting, and time algorithms execute purely inside your browser using client-side JavaScript. As soon as you refresh or close the tab, the text disappears. We do not store, log, or transmit any part of your content.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>How are silent reading and speech delivery times determined?</span>
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Silent reading calculations are benchmarked between 200 and 250 words per minute (WPM), in accordance with academic reading research for adult non-fiction. Speaking time is calculated at 130 to 150 WPM, representing the natural, articulate cadence used by professional public speakers, news broadcasters, and audio narrators.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Do I need to install any extension or create an account?</span>
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              No account, registration, or software download is required. Simply navigate to <strong>mehvireadtime.online</strong> on any browser, paste your text, and receive your results instantaneously.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Can I use Mehavi ReadTime on mobile devices?</span>
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Absolutely. The application is built with a mobile-first responsive architecture. It works effortlessly across iOS Safari, Android Chrome, tablets, and desktop workstations.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CTA Banner
+           ====================================================================== -->
+      <section class="cta-banner-section" aria-labelledby="cta-heading">
+        <div class="cta-banner">
+          <h2 id="cta-heading">Ready to Calculate Your Reading &amp; Speaking Time?</h2>
+          <p>
+            Experience our lightning-fast, privacy-protected word and duration calculator online right now.
+          </p>
+          <a href="index.html#tool" class="cta-btn-white">
+            <span>Launch Reading Time Tool</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       Footer Section
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info Column -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 8px;">
+            <div class="logo-icon-wrapper" style="width:32px; height:32px;" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <span>Mehavi ReadTime</span>
+          </a>
+          <p>
+            A free, client-side reading and speaking time estimator. Count words, pace speeches, and craft balanced content with complete privacy.
+          </p>
+        </div>
+
+        <!-- Tool Links Column -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#tool">Reading Time Tool</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#live-demo">Interactive Demo</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources Column -->
+        <div>
+          <h4 class="footer-col-title">Features</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Instant Calculation</a></li>
+            <li><a href="#features">100% Client Privacy</a></li>
+            <li><a href="#features">Speech &amp; Silent WPM</a></li>
+            <li><a href="#steps-title">How It Works</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal & Contact Column -->
+        <div>
+          <h4 class="footer-col-title">Legal &amp; Support</h4>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="mailto:contact@mehvireadtime.online">Support Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Strip -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Mehavi ReadTime (mehvireadtime.online). All rights reserved.
+        </div>
+        <ul class="footer-privacy-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Floating Button -->
+  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Back to top of page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Interactive Toast Notification -->
+  <div class="toast-notice" id="toastNotice" role="alert" aria-live="assertive">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <span id="toastMessage">Action completed</span>
+  </div>
+
+  <!-- ==========================================================================
+       Vanilla JavaScript (Self-Contained, No External Frameworks)
+       ========================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // 1. Mobile Menu Toggle
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+      const hamburgerIcon = document.getElementById('hamburgerIcon');
+      const closeIcon = document.getElementById('closeIcon');
+
+      if (mobileMenuToggle && mobileNavDrawer) {
+        mobileMenuToggle.addEventListener('click', function () {
+          const isOpen = mobileNavDrawer.classList.toggle('open');
+          mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          if (hamburgerIcon && closeIcon) {
+            hamburgerIcon.style.display = isOpen ? 'none' : 'block';
+            closeIcon.style.display = isOpen ? 'block' : 'none';
+          }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (event) {
+          if (
+            mobileNavDrawer.classList.contains('open') &&
+            !mobileNavDrawer.contains(event.target) &&
+            !mobileMenuToggle.contains(event.target)
+          ) {
+            mobileNavDrawer.classList.remove('open');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            if (hamburgerIcon && closeIcon) {
+              hamburgerIcon.style.display = 'block';
+              closeIcon.style.display = 'none';
+            }
+          }
+        });
+      }
+
+      // 2. FAQ Accordion Logic
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(function (item) {
+        const questionBtn = item.querySelector('.faq-question');
+        if (questionBtn) {
+          questionBtn.addEventListener('click', function () {
+            const isActive = item.classList.contains('active');
+            // Close other accordion items for clean single expansion
+            faqItems.forEach(function (otherItem) {
+              otherItem.classList.remove('active');
+              const btn = otherItem.querySelector('.faq-question');
+              if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+
+            if (!isActive) {
+              item.classList.add('active');
+              questionBtn.setAttribute('aria-expanded', 'true');
+            }
+          });
+        }
+      });
+
+      // 3. Interactive Reading Time Live Calculator
+      const demoInput = document.getElementById('demoInput');
+      const demoReadingTime = document.getElementById('demoReadingTime');
+      const demoSpeakingTime = document.getElementById('demoSpeakingTime');
+      const demoWordCount = document.getElementById('demoWordCount');
+      const demoCharCount = document.getElementById('demoCharCount');
+
+      const sampleBlogBtn = document.getElementById('sampleBlogBtn');
+      const sampleSpeechBtn = document.getElementById('sampleSpeechBtn');
+      const sampleClearBtn = document.getElementById('sampleClearBtn');
+
+      function formatTime(totalSeconds) {
+        if (totalSeconds <= 0) return '0 sec';
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = Math.round(totalSeconds % 60);
+
+        if (minutes === 0) {
+          return seconds + ' sec';
+        } else if (seconds === 0) {
+          return minutes + (minutes === 1 ? ' min' : ' mins');
+        } else {
+          return minutes + 'm ' + seconds + 's';
+        }
+      }
+
+      function updateCalculations() {
+        if (!demoInput) return;
+        const text = demoInput.value.trim();
+
+        // Count characters
+        const charCount = demoInput.value.length;
+        if (demoCharCount) demoCharCount.textContent = charCount.toLocaleString();
+
+        // Count words
+        let words = 0;
+        if (text.length > 0) {
+          // Match words splitting on whitespace
+          const matches = text.match(/\S+/g);
+          words = matches ? matches.length : 0;
+        }
+        if (demoWordCount) demoWordCount.textContent = words.toLocaleString();
+
+        // Reading speed: standard average 225 WPM (Silent Reading)
+        const readingWPM = 225;
+        const readingSeconds = (words / readingWPM) * 60;
+        if (demoReadingTime) demoReadingTime.textContent = formatTime(readingSeconds);
+
+        // Speaking speed: standard average 140 WPM (Speech Delivery)
+        const speakingWPM = 140;
+        const speakingSeconds = (words / speakingWPM) * 60;
+        if (demoSpeakingTime) demoSpeakingTime.textContent = formatTime(speakingSeconds);
+      }
+
+      if (demoInput) {
+        demoInput.addEventListener('input', updateCalculations);
+        // Initial run
+        updateCalculations();
+      }
+
+      // Presets
+      if (sampleBlogBtn && demoInput) {
+        sampleBlogBtn.addEventListener('click', function () {
+          demoInput.value = "Content readability is the linchpin of audience retention in digital publishing. When readers discover an article, their initial decision to commit hinges on whether the estimated investment of time aligns with their schedule. Incorporating an accurate, transparent reading time indicator at the top of long-form articles increases reader engagement by up to forty percent. Readers appreciate clarity, allowing them to bookmark deep dives for later or enjoy bite-sized insights during a quick coffee break.";
+          updateCalculations();
+          showToast('Loaded Sample Blog Post (76 words)');
+        });
+      }
+
+      if (sampleSpeechBtn && demoInput) {
+        sampleSpeechBtn.addEventListener('click', function () {
+          demoInput.value = "Ladies and gentlemen, welcome. Today we are gathered to discuss a quiet revolution taking place across the digital landscape: the power of mindful communication and respectful pacing. When you speak to an audience, words alone carry only part of the message. The rhythm of your delivery, the deliberate pauses between ideas, and the cadence of your voice transform raw sentences into meaningful insight. A speech delivered in a rush invites confusion, whereas a speech delivered with intentional cadence commands authority and inspires action. As communicators, our duty is not merely to transmit data, but to guide human attention with care and respect.";
+          updateCalculations();
+          showToast('Loaded Keynote Speech Sample (104 words)');
+        });
+      }
+
+      if (sampleClearBtn && demoInput) {
+        sampleClearBtn.addEventListener('click', function () {
+          demoInput.value = '';
+          updateCalculations();
+          showToast('Cleared text area');
+        });
+      }
+
+      // 4. Back To Top Button
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      if (backToTopBtn) {
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 350) {
+            backToTopBtn.classList.add('visible');
+          } else {
+            backToTopBtn.classList.remove('visible');
+          }
+        });
+
+        backToTopBtn.addEventListener('click', function () {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      // 5. Toast Notification Helper
+      let toastTimer;
+      function showToast(message) {
+        const toast = document.getElementById('toastNotice');
+        const msgEl = document.getElementById('toastMessage');
+        if (!toast || !msgEl) return;
+
+        msgEl.textContent = message;
+        toast.classList.add('show');
+
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toast.classList.remove('show');
+        }, 2600);
+      }
+
+      // 6. Smooth Scroll for all internal hash anchors
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              e.preventDefault();
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+              // Also close mobile drawer if open
+              if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
+                mobileNavDrawer.classList.remove('open');
+                if (mobileMenuToggle) mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                if (hamburgerIcon && closeIcon) {
+                  hamburgerIcon.style.display = 'block';
+                  closeIcon.style.display = 'none';
+                }
+              }
+            }
+          }
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>
